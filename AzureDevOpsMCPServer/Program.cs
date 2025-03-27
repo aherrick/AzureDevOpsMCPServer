@@ -98,7 +98,7 @@ public static class AzureDevOpsTools
         var jsonResponse = await response.Content.ReadAsStringAsync();
 
         // Parse the response to get work item IDs
-        using var jsonDoc = JsonDocument.Parse(jsonResponse);
+        var jsonDoc = JsonDocument.Parse(jsonResponse);
         var workItemIds = jsonDoc
             .RootElement.GetProperty("workItems")
             .EnumerateArray()
@@ -118,7 +118,7 @@ public static class AzureDevOpsTools
 
         // Parse the detailed response and extract key fields
         var detailsJson = await detailsResponse.Content.ReadAsStringAsync();
-        using var detailsDoc = JsonDocument.Parse(detailsJson);
+        var detailsDoc = JsonDocument.Parse(detailsJson);
 
         var simplifiedItems = detailsDoc
             .RootElement.GetProperty("value")
@@ -145,7 +145,7 @@ public static class AzureDevOpsTools
         reposResponse.EnsureSuccessStatusCode();
 
         var reposJson = await reposResponse.Content.ReadAsStringAsync();
-        using var reposDoc = JsonDocument.Parse(reposJson);
+        var reposDoc = JsonDocument.Parse(reposJson);
 
         var repoIds = reposDoc
             .RootElement.GetProperty("value")
@@ -167,7 +167,7 @@ public static class AzureDevOpsTools
             prResponse.EnsureSuccessStatusCode();
 
             var prJson = await prResponse.Content.ReadAsStringAsync();
-            using var prDoc = JsonDocument.Parse(prJson);
+            var prDoc = JsonDocument.Parse(prJson);
 
             return prDoc
                 .RootElement.GetProperty("value")
