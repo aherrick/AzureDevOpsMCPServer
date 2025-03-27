@@ -7,8 +7,8 @@
 1. **Clone the repository**:
 
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone https://github.com/aherrick/AzureDevOpsMCPServer.git
+cd AzureDevOpsMCPServer
 ```
 
 2. **Build the project**:
